@@ -117,14 +117,13 @@ def main():
     print("No. of Page Frame:", frames)
     
     if args.func == 'lru':
-        hit, miss = lru(items, frames)
-        print("Number of miss : {}\nNumber of hits: {}".format(hit, miss))
+        hit, miss = lru(items, frames) 
     elif args.func == 'optimal':
-        hit, miss = optimal(items, frames)
-        print("Number of miss : {}\nNumber of hits: {}".format(hit, miss))
+        hit, miss = optimal(items, frames) 
     else:
         hit, miss = fifo(items, frames)
-        print("Number of miss : {}\nNumber of hits: {}".format(hit, miss))
+       
+    print("Number of miss : {}\nNumber of hits: {}".format(hit, miss))
 
 parser = argparse.ArgumentParser("Choose replacement algorithm")
 parser.add_argument(
