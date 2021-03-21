@@ -35,8 +35,11 @@ def scan(current, items):
         arglist.insert(0,0)
         
     idx = arglist.index(current)
-    updated = arglist[idx:None:-1] + arglist[idx+1:]
-    return totalheadmovement(updated)
+    if idx > 0:
+        return totalheadmovement(arglist[idx:None:-1] + arglist[idx+1:])
+    else:
+        return totalheadmovement(arglist)
+    
 
 
 def cscan(current, items):
@@ -48,24 +51,31 @@ def cscan(current, items):
         arglist.append(total - 1)
         
     idx = arglist.index(current)
-    updated = arglist[idx:] + arglist[:idx] #transform list to update track movement for computation.
-    return totalheadmovement(updated)
-
+    if idx > 0:
+        return totalheadmovement(arglist[idx:] + arglist[:idx])
+    else:
+        return totalheadmovement(arglist)
 
 def look(current, items):
     print("Look Disk Scheduling")
     arglist = sorted(items[:])
     idx = arglist.index(current) 
-    updated = arglist[idx:] + arglist[idx-1:None:-1]
-    return totalheadmovement(updated)
+    if idx > 0:
+        return totalheadmovement(arglist[idx:] + arglist[idx-1:None:-1])
+    else:
+        return totalheadmovement(arglist)
+    
 
 
 def clook(current, items):
     print("C-Look Disk Scheduling")
     arglist = sorted(items[:])
     idx = arglist.index(current) 
-    updated = arglist[idx:] + arglist[:idx] #transform list to update track movement for computation.
-    return totalheadmovement(updated)
+    if idx > 0:
+        return totalheadmovement(arglist[idx:] + arglist[:idx]) #transform list to update track movement for computation.
+    else:
+        return totalheadmovement(arglist)
+    
 
 
 def main():
