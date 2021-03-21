@@ -1,5 +1,6 @@
 import argparse
 from collections import Counter # Count occurences in a collection
+from argparse import RawTextHelpFormatter
 
 #Optimal Algorithm
 def optimal(items, frames):
@@ -130,9 +131,9 @@ parser.add_argument(
     "-f", "--func",
     type=str,
     default="fifo",
-    help="fifo -First In, First Out"+
-         "lru - Least Recently Used"+
-         "optimal - Yes"
+    help="\n\nfifo -First In, First Out\n"+
+         "lru - Least Recently Used\n"+
+         "optimal - Optimal Algorithm"
     )
 args = parser.parse_args()
 
